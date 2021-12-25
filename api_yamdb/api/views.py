@@ -1,25 +1,24 @@
-from rest_framework import filters, mixins, status, viewsets
-from rest_framework.decorators import api_view, permission_classes, action
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth.tokens import default_token_generator
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, mixins, status, viewsets
+from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import AccessToken
 
+from reviews.models import Category, Genre, Review, Title
+from users.models import User
+from users.utils import send_confirmation_code
 from api.filters import SpecialTitlesFilter
 from api.permissions import (Admin, AdminOrReadOnly,
                              AuthorAdminModeratorOrReadOnly)
 from api.serializers import (CategorySerializer, CommentSerializer,
                              EmailAndNewUserRegistrationSerializer,
                              GenreSerializer, GetTokenSerializer,
-                             ReviewSerializer, UserSerializer,
-                             TitleSerializer)
-from reviews.models import Category, Genre, Review, Title
-from users.models import User
-from users.utils import send_confirmation_code
+                             ReviewSerializer, TitleSerializer, UserSerializer)
 
 
 class SpecialCastomMixin(viewsets.GenericViewSet,
