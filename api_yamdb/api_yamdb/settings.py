@@ -12,7 +12,7 @@ SECRET_KEY = config('SECRET_KEY', default='p&fgl%385314f8ks3lhtyn^##a1)ilz@4zqjr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=['*'], cast=Csv())
 
 
 # Application definition
