@@ -1,4 +1,4 @@
-# yamdb_final
+# yamdb
 ![Status of project](https://github.com/AkuLinker/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 ### Описание
 Проект для организации базы данных с отзывами на различные произведения искуства через api на основе RestAPI.
